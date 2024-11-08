@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+</head>
+<body>
+    <h2>Login as:</h2>
+    <form method="POST" action="/login">
+        <input type="radio" id="admin" name="user_type" value="admin">
+        <label for="admin">Admin</label>
+        <input type="radio" id="patient" name="user_type" value="patient">
+        <label for="patient">Patient</label><br><br>
+        
+        <div id="adminLogin" style="display: none;">
+            <label for="username">Username:</label>
+            <input type="text" name="username"><br>
+            <label for="password">Password:</label>
+            <input type="password" name="password"><br>
+        </div>
+        
+        <button type="submit">Login</button>
+    </form>
+
+    <script>
+        document.querySelectorAll('input[name="user_type"]').forEach((elem) => {
+            elem.addEventListener('change', function(event) {
+                if (event.target.value === 'admin') {
+                    document.getElementById('adminLogin').style.display = 'block';
+                } else {
+                    document.getElementById('adminLogin').style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

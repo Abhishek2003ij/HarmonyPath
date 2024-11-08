@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(30, 1fr);
+            gap: 5px;
+        }
+        .grid-item {
+            width: 20px;
+            height: 20px;
+            background-color: green;
+            border: 1px solid #ddd;
+            cursor: pointer;
+        }
+        .occupied {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h2>Admin Dashboard - Bed Management</h2>
+    <div class="grid-container">
+        {% for i in range(grid_size) %}
+            <div class="grid-item" onclick="toggleStatus(this)"></div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function toggleStatus(element) {
+            if (element.classList.contains('occupied')) {
+                element.classList.remove('occupied');
+                element.style.backgroundColor = 'green';
+            } else {
+                element.classList.add('occupied');
+                element.style.backgroundColor = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
